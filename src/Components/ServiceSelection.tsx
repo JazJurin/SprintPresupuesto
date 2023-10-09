@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import Total from "./Total";
 import Service from "./Service";
 import servicesData from "../Services.json";
+import Panel from "./Panel";
+
 export default function ServiceSelection() {
 	const [selectedServices, SetSelectedServices] = useState({});
-	const [services, setServices] = useState([]);
+    const [services, setServices] = useState([]);
+    const [webCost, setWebCost] = useState(0);
 
 	useEffect(() => {
 		setServices(servicesData);
@@ -17,15 +20,21 @@ export default function ServiceSelection() {
 
 			return newSelectedServices;
 		});
-	}
+    };
+
 	function calculateTotal() {
 		return services.reduce((total, service) => {
 			if (selectedServices[service.id]) {
 				return total + service.price;
 			}
 			return total;
-		}, 0);
-	}
+		}, 0) + webCost;
+    };
+
+    function budget(numPages, numLanguages) {
+        const cost = numPages * numLanguages * 30;
+        setWebCost(cost);
+    }
 
 	return (
 		<div>
@@ -40,7 +49,8 @@ export default function ServiceSelection() {
 					/>
 				))}
 			</div>
-			<Total total={calculateTotal()} />
+            <Total total={calculateTotal()} />
+            <Panel onUpdate={budget} />
 		</div>
 	);
 }
