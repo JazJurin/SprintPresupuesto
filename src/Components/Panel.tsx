@@ -1,19 +1,19 @@
 import { useState } from "react";
 
 export default function Panel({ onUpdate }) {
-	const [numPages, SetNumPages] = useState(0);
-	const [numLanguages, setNumLenguages] = useState(0);
+	const [numPages, SetNumPages] = useState(1);
+	const [numLanguages, setNumLenguages] = useState(1);
 
 	const handleNumPages = (e) => {
-		const value = e.target.value;
+		const value = parseInt(e.target.value);
 		SetNumPages(value);
-		onUpdate(numPages, value);
+		onUpdate(numLanguages, value);
 	};
 
 	const handleNumLanguages = (e) => {
-		const value = e.target.value;
+		const value = parseInt(e.target.value);
 		setNumLenguages(value);
-		onUpdate(numLanguages, value);
+		onUpdate(numPages, value);
 	};
 
 	return (
