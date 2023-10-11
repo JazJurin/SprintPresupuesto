@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Total from "./Total";
 import Service from "./Service";
-import servicesData from "../Services.json";
+import servicesData from "./data/Services.json";
 import Panel from "./Panel";
 
 export default function ServiceSelection() {
@@ -38,12 +38,13 @@ export default function ServiceSelection() {
 		setWebCost(cost);
 	}
 
-	return (
+    return (
+        <>
 		<div>
 			<h1>Consigue la mejor calidad</h1>
-			<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+			<div className="bg-black">
 				{services.map((service) => (
-					<Service
+					<Service 
 						key={service.id}
 						data={service}
 						selected={selectedServices[service.id]}
@@ -52,7 +53,8 @@ export default function ServiceSelection() {
 				))}
 			</div>
 			<Total total={calculateTotal()} />
-			<Panel onUpdate={budget} />
+		
 		</div>
+        </>
 	);
 }
