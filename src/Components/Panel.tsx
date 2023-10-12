@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Panel({ onUpdate }) {
+export default function Panel({ onUpdate, showBottons }) {
 	const [numPages, setNumPages] = useState(1);
 	const [numLanguages, setNumLanguages] = useState(1);
 
@@ -42,6 +42,8 @@ export default function Panel({ onUpdate }) {
 
 	return (
 		<div>
+			{showBottons && (
+				<>
 			<div>
 				<label>
 					Número de páginas:
@@ -67,7 +69,9 @@ export default function Panel({ onUpdate }) {
 					/>
 					<button onClick={increaseLanguages}>+</button>
 				</label>
-			</div>
+					</div>
+					</>
+			)}
 		</div>
 	);
 }

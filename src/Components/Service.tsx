@@ -1,5 +1,6 @@
 import Panel from "./Panel";
-export default function Service({ data, selected, onSelect }) {
+export default function Service({ data, selected, onSelect, budget }) {
+	const isWeb = data.id === 3;
 	return (
 		<>
 			<div className="bg-white rounded-lg shadow-lg p-4 m-4 w-64">
@@ -15,7 +16,7 @@ export default function Service({ data, selected, onSelect }) {
 					/>
 					<span className="ml-2">Seleccionar</span>
 				</label>
-				{selected && (data.id===3) && <Panel/> }
+				{isWeb && selected && <Panel onUpdate={budget} showBottons={true} /> }
 			</div>
 		</>
 	);
