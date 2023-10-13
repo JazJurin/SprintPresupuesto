@@ -44,33 +44,51 @@ export default function Panel({ onUpdate, showBottons }) {
 		<div>
 			{showBottons && (
 				<>
-			<div>
-				<label>
-					Número de páginas:
-					<button onClick={decreasePages}>-</button>
-					<input
-						type="number"
-						value={numPages}
-						onChange={handleNumPages}
-						min={1}
-					/>
-					<button onClick={increasePages}>+</button>
-				</label>
-			</div>
-			<div>
-				<label>
-					Número de idiomas:
-					<button onClick={decreaseLanguages}>-</button>
-					<input
-						type="number"
-						value={numLanguages}
-						onChange={handleNumLanguages}
-						min={1}
-					/>
-					<button onClick={increaseLanguages}>+</button>
-				</label>
+					<div className="flex items-center my-2">
+						<div className="relative rounded-md shadow-sm flex items-center">
+							<div className="text-center">Número de páginas:</div>
+							<button
+								className="bg-blue-300 text-white py-1 px-2 rounded-l-full"
+								onClick={decreasePages}
+							>
+								-
+							</button>
+							<input
+								type="number"
+								value={numPages}
+								onChange={handleNumPages}
+								min={1}
+								className="text-center form-input block w-10 rounded-none"
+							/>
+							<button onClick={increasePages}
+							className="bg-blue-300 text-white py-1 px-2 rounded-r-full">+</button>
+						</div>
 					</div>
-					</>
+					<div>
+						<div className="relative rounded-md shadow-sm flex items-center">
+						<div className="text-center">Número de idiomas:</div>
+							<button
+								className="bg-blue-300 text-white py-1 px-3 ml-2 rounded-l-full"
+								onClick={decreaseLanguages}
+							>
+								-
+							</button>
+							<input
+								type="number"
+								value={numLanguages}
+								onChange={handleNumLanguages}
+								min={1}
+								className="text-center form-input block w-10 rounded-none"
+							/>
+							<button
+								onClick={increaseLanguages}
+								className="bg-blue-300 text-white py-1 px-2 rounded-r-full"
+							>
+								+
+							</button>
+						</div>
+					</div>
+				</>
 			)}
 		</div>
 	);

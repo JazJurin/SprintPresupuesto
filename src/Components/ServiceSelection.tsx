@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Total from "./Total";
 import Service from "./Service";
 import servicesData from "./data/Services.json";
@@ -43,21 +44,27 @@ export default function ServiceSelection() {
 
 	return (
 		<>
-			<div>
-				<h1>Consigue la mejor calidad</h1>
-				<div className="bg-black">
-					{services.map((service) => (
-						<Service
-							key={service.id}
-							data={service}
-							selected={selectedServices[service.id]}
-							onSelect={() => handleServicesToggle(service.id)}
-							budget={budget}
-						/>
-					))}
-				</div>
+			<div className="text-center">
+				<h1 className="text-3xl font-bold my-4">CONSIGUE LA MEJOR CALIDAD</h1>
+			</div>
+
+			<div className="text-left">
+				{services.map((service) => (
+					<Service
+						key={service.id}
+						data={service}
+						selected={selectedServices[service.id]}
+						onSelect={() => handleServicesToggle(service.id)}
+						budget={budget}
+					/>
+				))}
 				{selectedServices[3] && <Panel onUpdate={budget} />}
 				<Total total={totalCost} />
+				<div className="text-center mt-4">
+					<Link to="/" className="btn btn-neutral">
+						HOME
+					</Link>
+				</div>
 			</div>
 		</>
 	);
