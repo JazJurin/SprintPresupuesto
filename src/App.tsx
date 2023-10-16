@@ -1,4 +1,4 @@
-import Rutas from "./Rutas/Rutas";
+import Rutas from "./Routes/Route";
 
 export default function App() {
 	return (

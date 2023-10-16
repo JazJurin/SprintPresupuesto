@@ -4,7 +4,7 @@ import imgCalculadora from "../assets/images/imgCalculadora.jpg"
 export default function Home() {
     return (
         <div className="hero min-h-screen"
-            style={{ backgroundImage:  `url(${imgCalculadora})` }}>
+            style={{ backgroundImage:  `url(${imgCalculadora})` } }>
         <div className="hero-overlay bg-opacity-30"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">

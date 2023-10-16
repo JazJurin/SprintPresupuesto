@@ -44,48 +44,54 @@ export default function Panel({ onUpdate, showBottons }) {
 		<div>
 			{showBottons && (
 				<>
-					<div className="flex items-center my-2">
-						<div className="relative rounded-md shadow-sm flex items-center">
-							<div className="text-center">Número de páginas:</div>
-							<button
-								className="bg-blue-300 text-white py-1 px-2 rounded-l-full"
-								onClick={decreasePages}
-							>
-								-
-							</button>
-							<input
-								type="number"
-								value={numPages}
-								onChange={handleNumPages}
-								min={1}
-								className="text-center form-input block w-10 rounded-none"
-							/>
-							<button onClick={increasePages}
-							className="bg-blue-300 text-white py-1 px-2 rounded-r-full">+</button>
+					<div className="grid-cols-4">
+						<div>
+							<div>
+								<p>Número de páginas:</p>
+								<button
+									className="btn-xs m-2"
+									onClick={decreasePages}
+								>
+									-
+								</button>
+								<input
+									type="number"
+									value={numPages}
+									onChange={handleNumPages}
+									min={1}
+									className="text-center w-10 h-10 rounded-lg bg-slate-300"
+								/>
+								<button
+									onClick={increasePages}
+									className="btn-xs m-2"
+								>
+									+
+								</button>
+							</div>
 						</div>
-					</div>
-					<div>
-						<div className="relative rounded-md shadow-sm flex items-center">
-						<div className="text-center">Número de idiomas:</div>
-							<button
-								className="bg-blue-300 text-white py-1 px-3 ml-2 rounded-l-full"
-								onClick={decreaseLanguages}
-							>
-								-
-							</button>
-							<input
-								type="number"
-								value={numLanguages}
-								onChange={handleNumLanguages}
-								min={1}
-								className="text-center form-input block w-10 rounded-none"
-							/>
-							<button
-								onClick={increaseLanguages}
-								className="bg-blue-300 text-white py-1 px-2 rounded-r-full"
-							>
-								+
-							</button>
+						<div>
+							<div>
+								<p>Número de idiomas:</p>
+								<button
+									className="btn-xs m-2"
+									onClick={decreaseLanguages}
+								>
+									-
+								</button>
+								<input
+									type="number"
+									value={numLanguages}
+									onChange={handleNumLanguages}
+									min={1}
+									className="text-center w-10 h-10 rounded-lg bg-slate-300"
+								/>
+								<button
+									onClick={increaseLanguages}
+									className="btn-xs m-2"
+								>
+									+
+								</button>
+							</div>
 						</div>
 					</div>
 				</>

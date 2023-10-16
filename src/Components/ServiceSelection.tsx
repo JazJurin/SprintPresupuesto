@@ -4,6 +4,7 @@ import Total from "./Total";
 import Service from "./Service";
 import servicesData from "./data/Services.json";
 import Panel from "./Panel";
+import BudgetList from "./BudgetList";
 
 export default function ServiceSelection() {
 	const [selectedServices, SetSelectedServices] = useState({});
@@ -44,21 +45,27 @@ export default function ServiceSelection() {
 
 	return (
 		<>
-			<div className="text-center">
-				<h1 className="text-3xl font-bold my-4">CONSIGUE LA MEJOR CALIDAD</h1>
-			</div>
-
-			<div className="text-left">
-				{services.map((service) => (
-					<Service
-						key={service.id}
-						data={service}
-						selected={selectedServices[service.id]}
-						onSelect={() => handleServicesToggle(service.id)}
-						budget={budget}
-					/>
-				))}
-				{selectedServices[3] && <Panel onUpdate={budget} />}
+			<div className="bg-slate-300">
+				<div>
+					<h1 className="text-center text-bold text-blue-500 text-3xl">
+						CONSIGUE LA MEJOR CALIDAD
+					</h1>
+				</div>
+				<div className="text-left">
+					{services.map((service) => (
+						<Service
+							key={service.id}
+							data={service}
+							selected={selectedServices[service.id]}
+							onSelect={() => handleServicesToggle(service.id)}
+							budget={budget}
+						/>
+					))}
+				</div>
+				<div className="flex">
+					{selectedServices[3] && <Panel onUpdate={budget} />}
+				</div>
+				<BudgetList selectedService={selectedServices} total={totalCost} />
 				<Total total={totalCost} />
 				<div className="text-center mt-4">
 					<Link to="/" className="btn btn-neutral">

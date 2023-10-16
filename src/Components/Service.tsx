@@ -13,20 +13,22 @@ export default function Service({ data, selected, onSelect, budget }) {
 							Precio: {data.price} €
 						</p>
 					</div>
-					{isWeb && selected && (
-						<div className="my-4">
-							<Panel onUpdate={budget} showBottons={true} />
-						</div>
-					)}
-					<div className="flex">
+					<div>
 						<input
 							type="checkbox"
 							checked={selected}
 							onChange={onSelect}
-							className="form-checkbox text-blue-500"
+							className="form-checkbox"
 						/>
 						<span className="ml-2">Seleccionar</span>
 					</div>
+				</div>
+				<div className="text-center">
+					{isWeb && selected && (
+						<div className="m-4">
+							<Panel onUpdate={budget} showBottons={true} />
+						</div>
+					)}
 				</div>
 			</div>
 		</>
